@@ -25,16 +25,13 @@ app.use(cors()); // Izinkan semua origin (bisa disesuaikan untuk produksi)
 // Middleware untuk parsing JSON
 app.use(express.json());
 
-// Route dasar untuk testing
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World! API Notes Ready.");
 });
 
-// Setting Routes
-require("./schema/User"); // Untuk generate Tabel Users
-app.use("/api/v1/users", userRoutes); // Untuk setting routes user
+require("./schema/Note"); 
+app.use("/api/v1/notes", noteRoutes); 
 
-// Sync Database dan Jalankan Server
 const port = process.env.PORT || 3000;
 sequelize.sync().then(() => {
   console.log("Database synced");
