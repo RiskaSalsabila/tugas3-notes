@@ -1,39 +1,80 @@
-# API Testing
+# API Testing (Health Check)
 GET http://localhost:5000/ HTTP/1.1
 
 ###
-# GET : All Users
-GET http://localhost:5000/api/v1/users HTTP/1.1
+# GET : All Notes
+GET http://localhost:5000/api/v1/notes HTTP/1.1
 Content-Type: application/json
 
 ###
-# GET : User by ID
-GET http://localhost:5000/api/v1/users/3 HTTP/1.1
+# GET : Note by ID
+# (Ganti angka 1 dengan ID catatan yang ada di database)
+GET http://localhost:5000/api/v1/notes/1 HTTP/1.1
 Content-Type: application/json
 
 ###
-# POST : Create User
-POST http://localhost:5000/api/v1/users HTTP/1.1
+# POST : Create Note
+POST http://localhost:5000/api/v1/notes HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "John Doe3",
-  "email": "johndoe2docker@example.com"
+  "judul": "Tugas TCC Riska",
+  "isi": "halo cek cek cek."
 }
 
 ###
-# PUT : Update User
-PUT http://localhost:5000/api/v1/users/3 HTTP/1.1
+# PUT : Update Note
+# (Ganti angka 1 dengan ID catatan yang ingin diubah)
+PUT http://localhost:5000/api/v1/notes/1 HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "John Doe Updated",
-  "email": "johndoeupdated@example.com"
+  "judul": "Tugas TCC Riska (Selesai)",
+  "isi": "Alhamdulillah deployment CI/CD pakai Cloud Build udah sukses!"
 }
 
 ###
-# DELETE : Delete User
-DELETE http://localhost:5000/api/v1/users/5 HTTP/1.1
+# DELETE : Delete Note
+# (Ganti angka 1 dengan ID catatan yang ingin dihapus)
+DELETE http://localhost:5000/api/v1/notes/1 HTTP/1.1
 Content-Type: application/json
 
+# -----------   
 
+# # API Testing
+# GET http://localhost:3000/ HTTP/1.1
+
+# ###
+# # GET : All Notes
+# GET http://localhost:3000/api/v1/notes HTTP/1.1
+# Content-Type: application/json
+
+# ###
+# # POST : Create Note
+# POST http://localhost:3000/api/v1/notes HTTP/1.1
+# Content-Type: application/json
+
+# {
+#   "judul": "test 123",
+#   "isi": "ini pesan note gwe"
+# }
+
+# ###
+# # GET : Note by ID
+# GET http://localhost:3000/api/v1/notes/1 HTTP/1.1
+# Content-Type: application/json
+
+# ###
+# # PUT : Update Note
+# PUT http://localhost:3000/api/v1/notes/1 HTTP/1.1
+# Content-Type: application/json
+
+# {
+#   "judul": "ini update",
+#   "isi": "notenya ke update"
+# }
+
+# ###
+# # DELETE : Delete Note
+# DELETE http://localhost:3000/api/v1/notes/1 HTTP/1.1
+# Content-Type: application/json
